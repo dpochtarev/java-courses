@@ -12,7 +12,7 @@ public class InteractRunner {
             String exit = "no";
             String first = null;
             boolean result = false;
-            while (!exit.equals("y")) {
+            while (!"y".equals(exit)) {
                 if(result) {
                     first = String.valueOf(calc.getResult());
                     System.out.println(first);
@@ -35,12 +35,13 @@ public class InteractRunner {
 
                 System.out.println("Result : " + calc.getResult());
                 System.out.println("Continue with result ? : y/n");
-                if(reader.next().equals("n"))  {
+                if("y".equals(reader.next())) result=true;
+
+                else   {
                     System.out.println("Exit : y/n ");
                     exit = reader.next();
                     calc.cleanResult();
                 }
-                else result=true;
             }
         } finally {
             reader.close();
