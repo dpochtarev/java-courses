@@ -1,10 +1,12 @@
+package action;
+
 /**
-   Класс для запуска калькулятор с параметрами.
+   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 */
 public class ArgRunner {
 	
 	public static void main(String[] arg) {
-		System.out.println("Calculate...");
+		System.out.println("action.Calculate...");
 		if (arg.length == 2) {
 			int first = Integer.valueOf(arg[0]);
 			int second = Integer.valueOf(arg[1]);

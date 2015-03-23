@@ -1,3 +1,5 @@
+package action;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +12,7 @@ public class InteractRunner {
     public static void main(String[] arg) {
         Scanner reader = new Scanner(System.in);
 //        try {
-//            Calculator calc = new Calculator();
+//            src.main.java.action.Calculator calc = new src.main.java.action.Calculator();
 //            String exit = "no";
 //            String first = null;
 //            boolean result = false;
@@ -140,55 +142,76 @@ public class InteractRunner {
         return result;
     }
 
-    public static int action(List<String> collection){
+    /**
+     *
+     * @param collection
+     * @return
+     */
+    public static int action(List<String> collection) {
         int result = 0;
         Calculator calc = new Calculator();
         List<String> list = collection;
+        try {
+            while (list.size() != 1) {
 
-        if (list.size()!=1 && "*".equals(list.get(1))) {
-            calc.mult(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
-            list = remove(list, String.valueOf(calc.getResult()));
-            calc.cleanResult();
-        }
-        if (list.size()!=1 && "/".equals(list.get(1))) {
-            calc.div(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
-            list = remove(list, String.valueOf(calc.getResult()));
-            calc.cleanResult();
-        }
-        if (list.size()!=1 && "+".equals(list.get(1)) && list.size()!=3) {
-            if ("*".equals(list.get(3)) || "/".equals(list.get(3))) {
-                List<String> sublist = list.subList(2, list.size());
-                calc.add(Integer.valueOf(list.get(0)), action(sublist));
-            } else {
-                calc.add(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
-                list = remove(list, String.valueOf(calc.getResult()));
-                calc.cleanResult();
+                if (list.size() != 1 && "*".equals(list.get(1))) {
+                    calc.mult(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
+                    list = remove(list, String.valueOf(calc.getResult()));
+                    calc.cleanResult();
+
+                }
+                if (list.size() != 1 && "/".equals(list.get(1))) {
+                    calc.div(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
+                    list = remove(list, String.valueOf(calc.getResult()));
+                    calc.cleanResult();
+                }
+                if (list.size() != 1 && "+".equals(list.get(1)) && list.size() != 3) {
+                    if ("*".equals(list.get(3)) || "/".equals(list.get(3))) {
+                        List<String> sublist = list.subList(2, list.size());
+                        calc.add(Integer.valueOf(list.get(0)), action(sublist));
+                        list = remove(list, String.valueOf(calc.getResult()));
+
+                    } else {
+                        calc.add(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
+                        list = remove(list, String.valueOf(calc.getResult()));
+                        calc.cleanResult();
+                    }
+                }
+                if (list.size() != 1 && "-".equals(list.get(1)) && list.size() != 3) {
+                    if ("*".equals(list.get(3)) || "/".equals(list.get(3))) {
+                        List<String> sublist = list.subList(2, list.size());
+                        calc.sub(Integer.valueOf(list.get(0)), action(sublist));
+                        list = remove(list, String.valueOf(calc.getResult()));
+
+                    } else
+                        calc.sub(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
+                    list = remove(list, String.valueOf(calc.getResult()));
+                    calc.cleanResult();
+                }
+
+
             }
+            if (list.size() == 1) result = Integer.valueOf(list.get(0));
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (list.size()!=1 && "-".equals(list.get(1)) && list.size()!=3) {
-            if ("*".equals(list.get(3)) || "/".equals(list.get(3))) {
-                List<String> sublist = list.subList(2, list.size());
-                calc.sub(Integer.valueOf(list.get(0)), action(sublist));
-            } else
-                calc.sub(Integer.valueOf(list.get(0)), Integer.valueOf(list.get(2)));
-            list = remove(list, String.valueOf(calc.getResult()));
-            calc.cleanResult();
-        }
-
-
-
-        if (list.size()==1) result = Integer.valueOf(list.get(0));
-
         return result;
+
     }
-    /* Method sets calculation value from @list
-    *  and removes from @list second & third alements*/
 
+    /**
+     *
+     * @param list
+     * @param value
+     * @return
+     */
     public static List<String> remove(List<String> list, String value){
-
-        list.set(0, value);
-        list.remove(1);
-        list.remove(1);
+        if(list.size()!=1) {
+            list.set(0, value);
+            list.remove(1);
+            list.remove(1);
+        }
         return list;
     }
 
