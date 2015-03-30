@@ -142,10 +142,9 @@ public class InteractRunner {
         return result;
     }
 
-    /**
-     *
-     * @param collection
-     * @return
+    /**Calculates expression parsed from analyzer
+     * @param collection of
+     * @return   Calculation result
      */
     public static int action(List<String> collection) {
         int result = 0;
@@ -201,7 +200,7 @@ public class InteractRunner {
     }
 
     /**
-     *
+     *  Sets value into first element and removes second and third
      * @param list
      * @param value
      * @return
@@ -214,6 +213,8 @@ public class InteractRunner {
         }
         return list;
     }
+
+
 
 }
 
