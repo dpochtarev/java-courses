@@ -1,4 +1,4 @@
-package action;
+package calculator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class InteractRunner {
     public static void main(String[] arg) {
         Scanner reader = new Scanner(System.in);
 //        try {
-//            src.main.java.action.Calculator calc = new src.main.java.action.Calculator();
+//            src.main.java.calculator.Calculator calc = new src.main.java.calculator.Calculator();
 //            String exit = "no";
 //            String first = null;
 //            boolean result = false;
@@ -187,7 +187,11 @@ public class InteractRunner {
                     list = remove(list, String.valueOf(calc.getResult()));
                     calc.cleanResult();
                 }
-
+               for(String s:list) {
+                   switch (s) {
+                       case "*":
+                   }
+               }
 
             }
             if (list.size() == 1) result = Integer.valueOf(list.get(0));

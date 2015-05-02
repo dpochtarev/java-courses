@@ -1,4 +1,4 @@
-package action;
+package calculator;
 
 /**
  * Created by Dmitry on 23.03.2015.
