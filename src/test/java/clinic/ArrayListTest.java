@@ -1,5 +1,6 @@
 package clinic;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ArrayListTest {
@@ -16,12 +17,16 @@ public class ArrayListTest {
         list.add("2");
         list.add("3");
         list.add("4");
-        list.add("5");
-        System.out.println(list.toString());
-        while (list.hasNext())  {
-            if (list.next().equals("3")) list.remove();
-        }
-        System.out.printf(list.toString());
+        list.add("19");
+        list.add("6");
+        list.add("6");
+        list.add("6");
+        list.add("6");
+        list.add("6");
+        list.add("9");
+        list.add("6");
+        list.remove(3);
+        Assert.assertEquals(list.get(3), "19");
     }
 
 }
