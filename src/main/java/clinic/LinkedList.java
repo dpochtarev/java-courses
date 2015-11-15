@@ -51,10 +51,14 @@ public class LinkedList {
     }
 
     public void remove(int index) throws Exception {
-        check(index);
-        check(index+1);
-        getNode(index+1).setPrev(getNode(index-1));
-        getNode(index).setNext(getNode(index+1));
+        if (index!=0) {
+            check(index);
+            check(index + 1);
+            getNode(index + 1).setPrev(getNode(index - 1));
+            getNode(index).setNext(getNode(index + 1));
+        } else {
+            getNode(index+1).setPrev(null);
+        }
         length--;
     }
     private void check(int index) throws Exception {
