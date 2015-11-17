@@ -13,16 +13,16 @@ public class LinkedListTest {
         list.add("second");
         list.add("third");
         list.add("fourth");
-        list.add("myvalue", 3);
         list.add("fifth");
         list.add("sixth");
-
         print();
+        list.add("myvalue", 3);
         list.remove(4);
+        list.add("myval", 0);
         print();
-        Assert.assertEquals(list.get(0), "first");
-        Assert.assertEquals(list.get(2), "third");
-        Assert.assertEquals(list.get(3), "myvalue");
+        Assert.assertEquals(list.get(0), "myval");
+        Assert.assertEquals(list.get(2), "second");
+        Assert.assertEquals(list.get(3), "third");
         Assert.assertEquals(list.get(4), "fifth");
 
     }
