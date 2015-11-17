@@ -1,6 +1,8 @@
 package clinic;
 
-
+/*
+Collection for data storage
+ */
 public class LinkedList {
     private int length;
     private Node current;
@@ -11,6 +13,10 @@ public class LinkedList {
         length = 0;
     }
 
+    /**
+     * adds element to the end of collection
+     * @param element to be added
+     */
     public void add(Object element) {
         if (length==0) {
             first = new Node(null, element, null);
@@ -24,6 +30,12 @@ public class LinkedList {
         length++;
     }
 
+    /**
+     * adds element to the certain position in collection
+     * @param element to be added
+     * @param index position in collection
+     * @throws Exception
+     */
     public void add(Object element, int index) throws Exception {
         check(index);
         if (index==0) {
@@ -44,15 +56,30 @@ public class LinkedList {
         }
     }
 
+    /**
+     *
+     * @param index of element
+     * @return value from element with index
+     * @throws Exception
+     */
     public Object get(int index) throws Exception {
         check(index);
         return getNode(index).getValue();
     }
 
+    /**
+     *
+     * @return  collection size
+     */
     public int getLength(){
         return this.length;
     }
 
+    /**
+     * removes element with index from collection
+     * @param index of element to be removed
+     * @throws Exception
+     */
     public void remove(int index) throws Exception {
         if (index!=0) {
             check(index);
@@ -63,6 +90,7 @@ public class LinkedList {
         }
         length--;
     }
+
 
     private Node getNode(int index) throws Exception {
         check(index);
