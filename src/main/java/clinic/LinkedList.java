@@ -82,10 +82,13 @@ public class LinkedList {
      */
     public void remove(int index) throws Exception {
         if (index!=0) {
-            check(index);
-            check(index + 1);
-            getNode(index + 1).setPrev(getNode(index - 1));
-        } else {
+            if (index!=length) {
+                check(index);
+                getNode(index + 1).setPrev(getNode(index - 1));
+            } else {
+               current.setPrev(getNode(index-1));
+            }
+            } else {
             changeFirst(first.getNext());
         }
         length--;
